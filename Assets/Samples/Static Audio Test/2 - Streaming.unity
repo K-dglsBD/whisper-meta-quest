@@ -776,7 +776,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -446}
+  m_AnchoredPosition: {x: 0, y: -445.9999}
   m_SizeDelta: {x: 0.0001, y: 0.000032424927}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &145324201
@@ -1039,7 +1039,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 595, y: 506}
+  m_AnchoredPosition: {x: 595, y: 506.00006}
   m_SizeDelta: {x: 550, y: 90}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &167558892
@@ -4214,7 +4214,7 @@ MonoBehaviour:
   translateToEnglish: 0
   strategy: 0
   noContext: 1
-  singleSegment: 0
+  singleSegment: 1
   enableTokens: 0
   initialPrompt: 
   stepSec: 3
@@ -8231,6 +8231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1337591121}
+  - component: {fileID: 1337591123}
   - component: {fileID: 1337591122}
   m_Layer: 0
   m_Name: Demo
@@ -8263,20 +8264,50 @@ MonoBehaviour:
   m_GameObject: {fileID: 1337591120}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dab0f155db4c47a5899bb88df9102c0, type: 3}
+  m_Script: {fileID: 11500000, guid: 3bc03a4c19604ea394e364f8fc632928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 587639199}
-  clip: {fileID: 0}
+  maxLengthSec: 60
+  loop: 0
+  frequency: 16000
+  chunksLengthSec: 0.5
+  echo: 1
+  useVad: 1
+  vadUpdateRateSec: 0.1
+  vadContextSec: 30
+  vadLastSec: 1.25
+  vadThd: 1
+  vadFreqThd: 100
+  vadIndicatorImage: {fileID: 0}
+  vadStop: 0
+  dropVadPart: 1
+  vadStopTime: 3
+  microphoneDropdown: {fileID: 837913796}
+  microphoneDefaultLabel: Default microphone
+--- !u!114 &1337591123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337591120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdcdb04e76799ab4192fa31ececc4c71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whisper: {fileID: 587639199}
+  microphoneRecord: {fileID: 1337591122}
   streamSegments: 1
-  echoSound: 1
   printLanguage: 1
   button: {fileID: 2099288375}
+  buttonText: {fileID: 1431014845}
   outputText: {fileID: 203807867}
   timeText: {fileID: 167558892}
-  scroll: {fileID: 145324201}
   languageDropdown: {fileID: 837913796}
   translateToggle: {fileID: 2039248619}
+  vadToggle: {fileID: 0}
+  scroll: {fileID: 0}
 --- !u!1 &1338378628
 GameObject:
   m_ObjectHideFlags: 0
@@ -13008,7 +13039,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1882481892}
   m_HandleRect: {fileID: 1882481891}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
